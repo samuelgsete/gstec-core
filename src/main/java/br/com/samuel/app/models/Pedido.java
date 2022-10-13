@@ -37,4 +37,8 @@ public class Pedido extends EntidadeBase {
    @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
    @JoinColumn(name = "pedido_id", referencedColumnName = "id")
    private EnderecoEnvio enderecoEnvio;
+
+   @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
+   @JoinColumn(name = "pedido_id", referencedColumnName = "id")
+   private Comprador comprador;
 }
