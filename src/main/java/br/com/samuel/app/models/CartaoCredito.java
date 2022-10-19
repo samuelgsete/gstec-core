@@ -10,8 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import br.com.samuel.app.models.enuns.BandeiraCartao;
-
 @Entity
 @Getter
 @Setter
@@ -22,7 +20,7 @@ public class CartaoCredito extends EntidadeBase {
     private String titular;
     private String validade;
     private String cvv;
-    private BandeiraCartao bandeira;
+    private String bandeira;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
