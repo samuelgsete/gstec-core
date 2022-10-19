@@ -6,26 +6,23 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+
+import br.com.samuel.app.models.enuns.BandeiraCartao;
 
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
-@AllArgsConstructor
-public class Endereco extends EntidadeBase {
+public class CartaoCredito extends EntidadeBase {
 
-    private String rua;
-    private Integer numero;
-    private String cep;
-    private String bairro;
-    private String municipio;
-    private String uf;
+    private String numero;
+    private String titular;
+    private String validade;
+    private String cvv;
+    private BandeiraCartao bandeira;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -33,13 +30,11 @@ public class Endereco extends EntidadeBase {
     private Cliente cliente;
 
     public boolean equals(Object o) {
-        if (this == o) {
+        if (this == o)
             return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass())
             return false;
-        }
-        Endereco that = (Endereco) o;
+        CartaoCredito that = (CartaoCredito) o;
         return Objects.equals(id, that.id);
     }
 

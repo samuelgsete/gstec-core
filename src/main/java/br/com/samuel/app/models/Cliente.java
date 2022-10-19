@@ -33,6 +33,10 @@ public class Cliente extends EntidadeBase {
     private Set<Endereco> enderecos = new HashSet<Endereco>();
 
     @JsonIgnore
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private Set<CartaoCredito> cartoes = new HashSet<CartaoCredito>();
+
+    @JsonIgnore
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
     @JoinColumn(name = "carrinho_id", referencedColumnName = "id")
     private Carrinho carrinho;
