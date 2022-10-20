@@ -21,7 +21,7 @@ import lombok.ToString;
 public class Endereco extends EntidadeBase {
 
     private String rua;
-    private Integer numero;
+    private String numero;
     private String cep;
     private String bairro;
     private String municipio;

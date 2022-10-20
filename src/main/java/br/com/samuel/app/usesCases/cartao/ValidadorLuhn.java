@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
 import br.com.samuel.app.models.BandeiraCartaoCredito;
 
+@Service
 public class ValidadorLuhn {
+
     public BandeiraCartaoCredito validar(Long numero) {
         Long n = numero;
         List<Integer> numeros = new ArrayList<Integer>();

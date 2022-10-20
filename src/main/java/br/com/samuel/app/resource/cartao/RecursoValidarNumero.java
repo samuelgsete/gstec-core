@@ -17,8 +17,8 @@ public class RecursoValidarNumero {
     @Autowired
     private ValidadorLuhn validador;
 
-    @GetMapping("{numero}/validar")
+    @GetMapping("{numeroCartao}/validar")
     public ResponseEntity<BandeiraCartaoCredito> executar(@PathVariable Long numeroCartao) {
-        return null;
+        return ResponseEntity.ok(validador.validar(numeroCartao));
     }
 }

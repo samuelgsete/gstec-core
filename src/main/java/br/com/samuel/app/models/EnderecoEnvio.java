@@ -16,7 +16,7 @@ import lombok.Setter;
 public class EnderecoEnvio extends EntidadeBase {
 
     private String rua;
-    private Integer numero;
+    private String numero;
     private String cep;
     private String bairro;
     private String municipio;
