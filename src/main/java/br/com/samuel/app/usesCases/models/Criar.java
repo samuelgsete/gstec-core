@@ -10,7 +10,7 @@ public abstract class Criar<T, R> {
     @Autowired
     private R repositorio;
 
-    public abstract URI executar(T novoRegistro);
+    public abstract URI executar(T novaInstancia);
 
     public R getRepositorio() {
         return repositorio;

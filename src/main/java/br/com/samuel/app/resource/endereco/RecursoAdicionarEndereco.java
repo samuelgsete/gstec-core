@@ -16,7 +16,7 @@ import br.com.samuel.app.usesCases.endereco.AdicionarEndereco;
 @RequestMapping("cliente")
 public class RecursoAdicionarEndereco extends RecursoAdicionar<Endereco, AdicionarEndereco> {
 
-    @PutMapping("/{id}")
+    @PutMapping("/{clienteId}/endereco")
     public ResponseEntity<Set<Endereco>> executar(@PathVariable Integer clienteId, @RequestBody Endereco endereco) {
         return ResponseEntity.ok(getAdicionar().executar(clienteId, endereco));
     }
