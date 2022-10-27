@@ -1,6 +1,5 @@
 package br.com.samuel.app.models;
 
-import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

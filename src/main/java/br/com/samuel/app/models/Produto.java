@@ -5,6 +5,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+
+import br.com.samuel.app.models.enuns.CondicaoProduto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -29,6 +31,14 @@ public class Produto extends EntidadeBase {
     private Double taxaDesconto;
     private Integer parcelamento;
     private String detalhes;
+    private Boolean freteGratis;
+    private Boolean recemLancado;
+    private Integer aprovacaoMedia;
+    private CondicaoProduto condicao;
+    private Double altura;
+    private Double largura;
+    private Double profundidade;
+    private String conteudoEmbalagem;
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private Set<ImagemProduto> imagens = new HashSet<ImagemProduto>();

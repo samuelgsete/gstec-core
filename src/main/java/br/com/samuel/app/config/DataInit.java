@@ -7,6 +7,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import br.com.samuel.app.models.Produto;
+import br.com.samuel.app.models.enuns.CondicaoProduto;
 import br.com.samuel.app.repository.RepositorioProduto;
 
 @Component
@@ -17,10 +18,10 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent arg) {
-        criarProdutos();
+        //criarProdutos();
     }
 
-    public void criarProdutos() {
+    /* public void criarProdutos() {
         Produto motoe7 = new Produto(
                 "Morotola Moto E7 Plus",
                 1299.99,
@@ -32,8 +33,12 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
                 8,
                 4.0,
                 0.05,
-                6,
+                10,
                 "Smartphone Morotola Moto E7 Plus 4Gb de RAM 64Gb de Armazenamento interno",
+                true,
+                false,
+                5,
+                CondicaoProduto.NOVO,
                 null);
         Produto ssd = new Produto(
                 "SSD NVME Kingston 250Gb",
@@ -46,8 +51,12 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
                 12,
                 2.5,
                 0.12,
-                6,
+                8,
                 "SSD 250Gb Kingston NV1",
+                false,
+                true,
+                3,
+                CondicaoProduto.NOVO,
                 null);
 
         Produto gtx1050 = new Produto(
@@ -61,9 +70,13 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
                 5,
                 6.4,
                 0.04,
-                6,
+                12,
                 "Placa de video Gigabyte Nvidia Gtx 1050Ti 4Gb GDDR5",
+                true,
+                false,
+                4,
+                CondicaoProduto.NOVO,
                 null);
         repositorioProduto.saveAll(Arrays.asList(motoe7, ssd, gtx1050));
-    }
+    }*/
 }

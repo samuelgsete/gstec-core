@@ -8,7 +8,6 @@ import br.com.samuel.app.usesCases.models.Editar;
 
 @Service
 public class EditarProduto extends Editar<Produto, RepositorioProduto> {
-
     public Produto executar(Integer id, Produto produto) {
         return getRepositorio()
                 .findById(id)
@@ -23,6 +22,10 @@ public class EditarProduto extends Editar<Produto, RepositorioProduto> {
                     produtoDesatualizado.setDetalhes(produto.getDetalhes());
                     produtoDesatualizado.setUnidadesVendidas(produto.getUnidadesVendidas());
                     produtoDesatualizado.setEstoque(produto.getEstoque());
+                    produtoDesatualizado.setAltura(produto.getAltura());
+                    produtoDesatualizado.setLargura(produto.getLargura());
+                    produtoDesatualizado.setProfundidade(produto.getProfundidade());
+                    produtoDesatualizado.setConteudoEmbalagem(produto.getConteudoEmbalagem());
                     return getRepositorio().save(produtoDesatualizado);
                 }).orElse(null);
     }

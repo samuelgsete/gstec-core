@@ -26,7 +26,7 @@ public class LimparCarrinho {
         carrinho.setItens(new HashSet<ItemCarrinho>());
         carrinho.setSubtotal(0.0);
         carrinho.setTotalItens(0);
-        repositorioItemCarrinho.deleteAll(itens.stream().toList());
+        repositorioItemCarrinho.deleteAll(itens);
         return ResponseEntity.ok(repositorioCarrinho.save(carrinho));
     }
 }
