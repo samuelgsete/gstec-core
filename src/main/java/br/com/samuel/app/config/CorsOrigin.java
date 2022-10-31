@@ -21,7 +21,7 @@ public class CorsOrigin {
         config.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("*"));
-        config.setExposedHeaders(Arrays.asList("content-length"));
+        config.setExposedHeaders(Arrays.asList("*"));
         config.setMaxAge(3600L);
         source.registerCorsConfiguration("/**", config);
         FilterRegistrationBean<Filter> bean = new FilterRegistrationBean<Filter>(new CorsFilter(source));

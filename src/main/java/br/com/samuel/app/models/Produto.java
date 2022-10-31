@@ -42,4 +42,7 @@ public class Produto extends EntidadeBase {
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private Set<ImagemProduto> imagens = new HashSet<ImagemProduto>();
+
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    private Set<Especificacao> especificacoes = new HashSet<Especificacao>();
 }
