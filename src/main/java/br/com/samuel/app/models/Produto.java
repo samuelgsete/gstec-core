@@ -3,6 +3,7 @@ package br.com.samuel.app.models;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -21,6 +22,7 @@ public class Produto extends EntidadeBase {
 
     private String nome;
     private Double preco;
+    private String fabricante;
     private String marca;
     private String modelo;
     private String linha;
@@ -30,6 +32,8 @@ public class Produto extends EntidadeBase {
     private Double peso;
     private Double taxaDesconto;
     private Integer parcelamento;
+
+    @Column(length = 20000)
     private String detalhes;
     private Boolean freteGratis;
     private Boolean recemLancado;
