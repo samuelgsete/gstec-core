@@ -21,6 +21,7 @@ public class CriarProduto extends Criar<Produto, RepositorioProduto> {
         Set<Especificacao> especificacoes = novoProduto.getEspecificacoes();
         for(Especificacao especificacao: especificacoes)
             especificacao.setProduto(novoProduto);
+        
         Produto produtoCriado = getRepositorio().save(novoProduto);
         URI localizacao = ServletUriComponentsBuilder
                 .fromCurrentRequest()

@@ -16,9 +16,9 @@ public class DataSourceConfig {
     public DataSource dataSource() {
         var dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://motty.db.elephantsql.com:5432/nfdkeixd");
-        dataSource.setUsername("nfdkeixd");
-        dataSource.setPassword("mPs-Kkv1QwhkuHuWSwTkqS3e6eTlJtNe"); 
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/slecommercedb");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("postgres"); 
         return dataSource;
     }
 

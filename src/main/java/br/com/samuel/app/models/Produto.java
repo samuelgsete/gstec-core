@@ -5,7 +5,9 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import br.com.samuel.app.models.enuns.CondicaoProduto;
 import lombok.Getter;
@@ -21,7 +23,6 @@ import lombok.Setter;
 public class Produto extends EntidadeBase {
 
     private String nome;
-    private Double preco;
     private String fabricante;
     private String marca;
     private String modelo;
@@ -29,24 +30,30 @@ public class Produto extends EntidadeBase {
     private Integer garantia;
     private Integer estoque;
     private Integer unidadesVendidas;
-    private Double peso;
-    private Double taxaDesconto;
-    private Integer parcelamento;
-
-    @Column(length = 20000)
-    private String detalhes;
     private Boolean freteGratis;
     private Boolean recemLancado;
     private Integer aprovacaoMedia;
     private CondicaoProduto condicao;
+    private Double peso;
     private Double altura;
     private Double largura;
     private Double profundidade;
     private String conteudoEmbalagem;
+
+    @Column(length = 2040)
+    private String detalhes;
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private Set<ImagemProduto> imagens = new HashSet<ImagemProduto>();
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private Set<Especificacao> especificacoes = new HashSet<Especificacao>();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cor_id")
+    private Cor cor;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "precificacao_id")
+    private Precificacao precificacao;
 }

@@ -22,7 +22,7 @@ public class AdicionarItemCarrinho {
         itens.add(novoItem);
         Double subtotal = itens
                 .stream()
-                .mapToDouble(item -> item.getQuantidade() * item.getProduto().getPreco())
+                .mapToDouble(item -> item.getQuantidade() * item.getProduto().getPrecificacao().getPrecoAvista())
                 .sum();
         Integer totalItens = itens
                 .stream()

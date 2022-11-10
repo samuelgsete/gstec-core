@@ -23,6 +23,7 @@ public class ImagemProduto extends EntidadeBase {
     private String url;
     private Integer largura;
     private Integer altura;
+    private Boolean imagemPrincipal = false;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
