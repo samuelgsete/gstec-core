@@ -27,6 +27,7 @@ public class Cliente extends EntidadeBase {
     private String cpf;
     private String telefone;
     private String email;
+    private String senha;
 
     @JsonIgnore
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)

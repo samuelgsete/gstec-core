@@ -17,7 +17,7 @@ public class RecursoCriarCliente {
     @Autowired
     private CriarCliente criarCliente;
 
-    @PostMapping("/novo")
+    @PostMapping
     public ResponseEntity<Object> criarCliente(@RequestBody Cliente novoCliente) {
         return ResponseEntity
                 .created(criarCliente.executar(novoCliente))
