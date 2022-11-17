@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -13,12 +12,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Carrinho extends EntidadeBase {
@@ -29,8 +26,11 @@ public class Carrinho extends EntidadeBase {
     @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL)
     private Set<ItemCarrinho> itens = new HashSet<ItemCarrinho>();
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "resumo_pedido_id", referencedColumnName = "id")
+    private ResumoPedido resumoPedido;
+
     @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "carrinho")
     private Cliente cliente;
 }

@@ -14,7 +14,7 @@ import br.com.samuel.app.usesCases.carrinho.CriarCarrinho;
 @RequestMapping("carrinho")
 public class RecursoCriarCarrinho extends RecursoCriar<Carrinho, CriarCarrinho> {
 
-    @PostMapping("/novo")
+    @PostMapping
     public ResponseEntity<Object> executar(@RequestBody Carrinho novoCarrinho) {
         return ResponseEntity
                 .created(getCriar().executar(novoCarrinho))

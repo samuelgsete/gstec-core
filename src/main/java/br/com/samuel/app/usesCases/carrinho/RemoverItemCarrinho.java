@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.samuel.app.models.Carrinho;
 import br.com.samuel.app.models.ItemCarrinho;
+import br.com.samuel.app.models.ResumoPedido;
 import br.com.samuel.app.repository.RepositorioCarrinho;
 import br.com.samuel.app.repository.RepositorioItemCarrinho;
 
@@ -26,8 +27,15 @@ public class RemoverItemCarrinho {
         carrinho.setItens(itens);
         Integer totalItens = carrinho.getTotalItens() - itemCarrinho.getQuantidade();
         carrinho.setTotalItens(totalItens);
+
+        ResumoPedido resumoPedido = new ProcessarResumoPedido().executar(itens);
+        resumoPedido.setId(carrinho.getResumoPedido().getId());
+        resumoPedido.setCarrinho(carrinho);
+        carrinho.setResumoPedido(resumoPedido);
+        
         carrinho = repositorioCarrinho.save(carrinho);
         repositorioItemCarrinho.delete(itemCarrinho);
+
         return ResponseEntity.ok(carrinho);
     }
 }

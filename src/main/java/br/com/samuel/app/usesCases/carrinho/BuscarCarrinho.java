@@ -10,6 +10,6 @@ import br.com.samuel.app.usesCases.models.Buscar;
 @Service
 public class BuscarCarrinho extends Buscar<Carrinho, RepositorioCarrinho> {
     public Optional<Carrinho> executar(Integer clienteId) {
-        return getRepositorio().findById(clienteId);
+        return getRepositorio().buscarCarrinhoPorIdCliente(clienteId);
     }
 }

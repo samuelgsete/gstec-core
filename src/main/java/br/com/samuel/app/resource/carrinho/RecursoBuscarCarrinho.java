@@ -11,7 +11,7 @@ import br.com.samuel.app.resource.models.RecursoBuscar;
 import br.com.samuel.app.usesCases.carrinho.BuscarCarrinho;
 
 @RestController
-@RequestMapping("produto")
+@RequestMapping("cliente")
 public class RecursoBuscarCarrinho extends RecursoBuscar<Carrinho, BuscarCarrinho> {
 
     @GetMapping("/{id}/carrinho")

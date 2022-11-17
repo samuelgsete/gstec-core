@@ -27,6 +27,8 @@ public class ItemCarrinho extends EntidadeBase {
     @JoinColumn(name = "produto_id")
     private Produto produto;
 
+    private Boolean selecionado;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carrinho_id", referencedColumnName = "id")

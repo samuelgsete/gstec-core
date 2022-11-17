@@ -11,6 +11,6 @@ import br.com.samuel.app.models.Carrinho;
 @Repository
 public interface RepositorioCarrinho extends JpaRepository<Carrinho, Integer> {
 
-    @Query("SELECT c FROM Carrinho c WHERE c.cliente.id = clienteId")
+    @Query("SELECT c FROM Carrinho c WHERE c.cliente.id = :clienteId")
     public Optional<Carrinho> buscarCarrinhoPorIdCliente(@Param("clienteId") Integer clienteId);
 }

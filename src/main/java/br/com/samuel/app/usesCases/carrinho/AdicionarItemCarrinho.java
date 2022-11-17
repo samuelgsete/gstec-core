@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.samuel.app.models.Carrinho;
 import br.com.samuel.app.models.ItemCarrinho;
+import br.com.samuel.app.models.ResumoPedido;
 import br.com.samuel.app.repository.RepositorioCarrinho;
 
 @Service
@@ -26,11 +27,17 @@ public class AdicionarItemCarrinho {
                 .sum();
         Integer totalItens = itens
                 .stream()
+                .filter(item -> item.getSelecionado())
                 .mapToInt(item -> item.getQuantidade())
                 .sum();
         carrinho.setSubtotal(subtotal);
         carrinho.setTotalItens(totalItens);
         carrinho.setItens(itens);
+
+        ResumoPedido resumoPedido = new ProcessarResumoPedido().executar(itens);
+        resumoPedido.setCarrinho(carrinho);
+        carrinho.setResumoPedido(resumoPedido);
+
         return ResponseEntity.ok(repositorioCarrinho.save(carrinho));
     }
 }
