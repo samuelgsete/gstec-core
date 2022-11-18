@@ -13,12 +13,6 @@ public class ProcessarResumoPedido {
             .mapToDouble(itemAtual -> itemAtual.getQuantidade() * itemAtual.getProduto().getPrecificacao().getPrecoAvista())
             .sum();
 
-        Double descontoAvista = itens
-            .stream()
-            .filter(itemAtual -> itemAtual.getSelecionado())
-            .mapToDouble(itemAtual -> itemAtual.getQuantidade() * itemAtual.getProduto().getPrecificacao().getDescontoAvista())
-            .sum();
-
         Double subtotalParcelado = itens
             .stream()
             .filter(itemAtual -> itemAtual.getSelecionado())
@@ -38,7 +32,7 @@ public class ProcessarResumoPedido {
         
         ResumoPedido resumo = new ResumoPedido();
         resumo.setSubtotalAvista(subtotalAvista);
-        resumo.setDescontoAvista(descontoAvista);
+        resumo.setDescontoAvista(subtotalParcelado - subtotalAvista);
         resumo.setSubtotalParcelado(subtotalParcelado);
         resumo.setDescontoParcelado(descontoParcelado);
         resumo.setParcelamento(parcelamento);
