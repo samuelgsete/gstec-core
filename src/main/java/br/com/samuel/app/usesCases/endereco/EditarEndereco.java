@@ -12,11 +12,13 @@ public class EditarEndereco extends Editar<Endereco, RepositorioEndereco> {
     public Endereco executar(Integer id, Endereco endereco) {
         Endereco enderecoAtual = getRepositorio().findById(id).get();
         enderecoAtual.setRua(endereco.getRua());
-        enderecoAtual.setRua(endereco.getRua());
+        enderecoAtual.setNumero(endereco.getNumero());
         enderecoAtual.setCep(endereco.getCep());
         enderecoAtual.setBairro(endereco.getBairro());
         enderecoAtual.setMunicipio(endereco.getMunicipio());
         enderecoAtual.setUf(endereco.getUf());
+        enderecoAtual.setDestinatario(endereco.getDestinatario());
+        enderecoAtual.setTelefone(endereco.getTelefone());
         return getRepositorio().save(enderecoAtual);
     }
 }

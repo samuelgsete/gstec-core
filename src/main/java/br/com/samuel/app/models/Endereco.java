@@ -26,6 +26,9 @@ public class Endereco extends EntidadeBase {
     private String bairro;
     private String municipio;
     private String uf;
+    private String destinatario;
+    private String telefone;
+    private Boolean enderecoPadrao;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
