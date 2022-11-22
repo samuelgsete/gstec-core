@@ -1,8 +1,10 @@
 package br.com.samuel.app.models;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -23,11 +25,16 @@ import lombok.ToString;
 public class Cliente extends EntidadeBase {
 
     private String nome;
+    private String sobrenome;
     private String usuario;
     private String cpf;
     private String telefone;
     private String email;
     private String senha;
+    private Boolean estaAtiva;
+
+    @Column(name = "registrado_desde", columnDefinition = "TIMESTAMP")
+    private LocalDateTime registradoDesde = LocalDateTime.now();
 
     @JsonIgnore
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
