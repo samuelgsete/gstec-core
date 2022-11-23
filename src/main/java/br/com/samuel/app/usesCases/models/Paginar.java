@@ -13,5 +13,5 @@ public abstract class Paginar<T, R> {
         return repositorio;
     }
 
-    public abstract Page<T> executar(String palavraChave, Pageable pageable);
+    public abstract Page<T> executar(String palavraChave, String ordenacao, Pageable pageable);
 }

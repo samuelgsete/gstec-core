@@ -1,5 +1,6 @@
 package br.com.samuel.app.models;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -39,6 +40,9 @@ public class Produto extends EntidadeBase {
     private Double largura;
     private Double profundidade;
     private String conteudoEmbalagem;
+
+    @Column(name = "ofertado_desde", columnDefinition = "TIMESTAMP")
+    private LocalDateTime ofertadoDesde = LocalDateTime.now();
 
     @Column(length = 2040)
     private String detalhes;

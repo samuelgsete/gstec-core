@@ -14,5 +14,5 @@ public abstract class RecursoPaginar<T, R> {
         return listarPaginado;
     }
 
-    public abstract ResponseEntity<Page<T>> executar(String palavraChave, Pageable pageable);
+    public abstract ResponseEntity<Page<T>> executar(String palavraChave, String ordenacao, Pageable pageable);
 }

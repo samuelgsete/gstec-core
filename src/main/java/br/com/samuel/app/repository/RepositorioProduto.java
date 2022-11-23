@@ -26,4 +26,7 @@ public interface RepositorioProduto extends JpaRepository<Produto, Integer> {
 
     @Query("SELECT p FROM Produto p ORDER BY p.precificacao.descontoAvista DESC")
     Page<Produto> listarProdutosMaiorDesconto(Pageable pageable);
+
+    @Query("SELECT p FROM Produto p ORDER BY p.ofertadoDesde DESC")
+    Page<Produto> listarProdutosMaisRecentes(Pageable pageable);
 }

@@ -17,7 +17,7 @@ import br.com.samuel.app.usesCases.produto.ListarProdutosPaginado;
 public class RecursoListarProdutosPaginado extends RecursoPaginar<Produto, ListarProdutosPaginado> {
 
     @GetMapping("/listarpaginado")
-    public ResponseEntity<Page<Produto>> executar(@RequestParam String palavraChave, Pageable pageable) {
-        return ResponseEntity.ok(getListarPaginado().executar(palavraChave, pageable));
+    public ResponseEntity<Page<Produto>> executar(@RequestParam String palavraChave, @RequestParam String ordenacao, Pageable pageable) {
+        return ResponseEntity.ok(getListarPaginado().executar(palavraChave, ordenacao, pageable));
     }
 }
