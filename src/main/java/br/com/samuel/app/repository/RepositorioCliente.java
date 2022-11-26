@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 import br.com.samuel.app.models.Cliente;
 
 @Repository
-public interface RepositorioCliente extends JpaRepository<Cliente, Integer> {
-}
+public interface RepositorioCliente extends JpaRepository<Cliente, Integer> {}

@@ -6,15 +6,18 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import br.com.samuel.app.models.enuns.CondicaoProduto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
+
+import br.com.samuel.app.models.enuns.CondicaoProduto;
 
 @Entity
 @Getter
@@ -40,6 +43,7 @@ public class Produto extends EntidadeBase {
     private Double largura;
     private Double profundidade;
     private String conteudoEmbalagem;
+    private Boolean estaAtivo;
 
     @Column(name = "ofertado_desde", columnDefinition = "TIMESTAMP")
     private LocalDateTime ofertadoDesde = LocalDateTime.now();
@@ -60,4 +64,8 @@ public class Produto extends EntidadeBase {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "precificacao_id")
     private Precificacao precificacao;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private ProdutosFavoritos produtosFavoritos;
 }

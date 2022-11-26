@@ -47,4 +47,8 @@ public class Cliente extends EntidadeBase {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "carrinho_id", referencedColumnName = "id")
     private Carrinho carrinho;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "produtos_favoritos_id")
+    private ProdutosFavoritos produtosFavoritos;
 }
