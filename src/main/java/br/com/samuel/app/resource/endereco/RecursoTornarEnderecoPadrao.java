@@ -22,7 +22,7 @@ public class RecursoTornarEnderecoPadrao {
     private TornarEnderecoPadrao tornarEnderecoPadrao;
 
     @PatchMapping("{enderecoId}")
-    public ResponseEntity<List<Endereco>> executar(@PathVariable Integer enderecoId,  @RequestParam Integer clienteId, @RequestParam Boolean enderecoPadrao) {
-        return ResponseEntity.ok(tornarEnderecoPadrao.executar(clienteId, enderecoId, enderecoPadrao));
+    public ResponseEntity<List<Endereco>> executar(@PathVariable Integer enderecoId,  @RequestParam Integer clienteId) {
+        return ResponseEntity.ok(tornarEnderecoPadrao.executar(clienteId, enderecoId));
     }
 }

@@ -16,15 +16,15 @@ public class TornarEnderecoPadrao {
     @Autowired
     private RepositorioEndereco repositorio;
 
-    public List<Endereco> executar(Integer clienteId, Integer enderecoId, Boolean enderecoPadrao) {
+    public List<Endereco> executar(Integer clienteId, Integer enderecoId) {
         Set<Endereco> enderecos = repositorio.buscarEnderecosPorIdCliente(clienteId);
         List<Endereco> enderecosAtualizados = enderecos.stream()
             .map(endereco -> {
-                if(endereco.getEnderecoPadrao()) {
-                    endereco.setEnderecoPadrao(!enderecoPadrao);
-                }
                 if(endereco.getId().equals(enderecoId)) {
-                    endereco.setEnderecoPadrao(enderecoPadrao);
+                    endereco.setEnderecoPadrao(true);
+                }
+                else {
+                    endereco.setEnderecoPadrao(false);
                 }
                 return endereco;
             }).collect(Collectors.toList());
